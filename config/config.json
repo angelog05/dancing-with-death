@@ -1,0 +1,47 @@
+{
+  "envi": "production",
+  "databaseConfig": {
+    "connectionUrl": "mongodb+srv://angelog05:PdaDLywV-u74725@dancing-with-death.efek0.mongodb.net/?retryWrites=true&w=majority"
+  },
+  "middleware": {
+    "cors": {
+      "enabled": true,
+      "priority": 5,
+      "module": {
+        "name": "cors",
+        "arguments": [
+          {
+            "origin": "*",
+            "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+            "preflightContinue": false,
+            "optionsSuccessStatus": 204
+          }
+        ]
+      }
+    },
+
+    "appsec": {
+      "enabled": true,
+      "priority": 110,
+      "module": {
+        "name": "lusca",
+        "arguments": [
+          {
+            "csrf": false,
+            "p3p": false,
+            "xframe": "SAME-ORIGIN",
+            "csp": false
+          }
+        ]
+      }
+    },
+
+    "router": {
+      "enabled": true,
+      "priority": 120,
+      "module": {
+        "arguments": [{ "directory": "path:./app/controllers" }]
+      }
+    }
+  }
+}

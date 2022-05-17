@@ -1,0 +1,110 @@
+{
+  "name": "dancing-with-death",
+  "version": "0.0.1",
+  "description": "",
+  "author": "AGarridoT",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run test && rimraf build && npm run copy",
+    "copy": "copyfiles \"{config,lib,app}/**/*\" build | copyfiles \"./*.{js,json}\" build | copyfiles \"./.npmrc\" build",
+    "lint": "eslint .",
+    "start": "node index.js",
+    "start:local": "nodemon index.js",
+    "test": "mocha",
+    "test-with-coverage": "nyc --reporter=text mocha"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "kraken-js": "^2.4.0",
+    "mongoose": "^6.3.3"
+  },
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "copyfiles": "^2.4.1",
+    "eslint": "^8.11.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "mocha": "^9.2.2",
+    "nodemon": "^2.0.15",
+    "nyc": "^15.1.0",
+    "prettier": "^2.6.0",
+    "rimraf": "^3.0.2"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 2020
+    },
+    "env": {
+      "es6": true,
+      "node": true,
+      "mocha": true,
+      "browser": true
+    },
+    "extends": [
+      "airbnb",
+      "prettier",
+      "plugin:prettier/recommended"
+    ],
+    "plugins": [
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true,
+          "trailingComma": "none",
+          "arrowParens": "avoid",
+          "printWidth": 100,
+          "semi": true
+        }
+      ],
+      "no-const-assign": 2,
+      "prefer-const": 2,
+      "no-constant-condition": 2,
+      "no-var": 2,
+      "comma-dangle": [
+        "error",
+        "never"
+      ],
+      "no-magic-numbers": [
+        "error",
+        {
+          "enforceConst": true,
+          "ignore": [
+            -1,
+            0,
+            1
+          ]
+        }
+      ],
+      "import/order": [
+        "error",
+        {
+          "groups": [
+            "builtin",
+            "external",
+            "parent",
+            "sibling",
+            "index"
+          ],
+          "newlines-between": "always"
+        }
+      ]
+    }
+  },
+  "eslintIgnore": [
+    "build",
+    "node_modules"
+  ],
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "none",
+    "arrowParens": "avoid",
+    "printWidth": 100,
+    "semi": true
+  }
+}
