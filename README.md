@@ -23,7 +23,7 @@ body: {
 }
 ```
 
-- [ ] Formato para la fecha: MM-DD-YYYY.
+- [ ] Formato para la fecha: YYYY-MM-DD.
 - [ ] Formato para la hora: "9" ó 9.
   - [ ] solo pueden ser horas fijas:
     - [ ] valido: "9", 15, 18, "17".
